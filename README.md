@@ -1,5 +1,7 @@
 # timefmt-go
 
+[![converted by go2cs](https://go2cs.net/images/go2cs-badge.svg)](https://go2cs.net)
+
 An unofficial C# conversion of the Go module [`github.com/itchyny/timefmt-go`](https://github.com/itchyny/timefmt-go), produced by [go2cs](https://github.com/ritchiecarroll/go2cs) as a proof of its third-party conversion path.
 
 This repository is not affiliated with or endorsed by itchyny, the author of `github.com/itchyny/timefmt-go`, or the Go project. Go users should use the upstream module.
