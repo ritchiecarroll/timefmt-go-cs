@@ -26,9 +26,9 @@ public static slice<byte> AppendFormat(slice<byte> buf, time.Time t, @string for
             }
             (b, width, padding, upper, swap) = (format[i], 0, (byte)'0', false, false);
 L:
-            var exprᴛ1 = b;
+            var bᴛ1 = b;
             var matchᴛ1 = false;
-            if (exprᴛ1 is (byte)'-') { matchᴛ1 = true;
+            if (bᴛ1 is (byte)'-') { matchᴛ1 = true;
                 do {
                     if (pending != ""u8) {
                         buf = append(buf, (byte)'-');
@@ -42,7 +42,7 @@ L:
                     goto L;
                 } while (false);
             }
-            else if (exprᴛ1 is (byte)'_') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'_') { matchᴛ1 = true;
                 i++; if (i == len(format)) {
                     goto K;
                 }
@@ -50,7 +50,7 @@ L:
                 b = format[i];
                 goto L;
             }
-            else if (exprᴛ1 is (byte)'^') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'^') { matchᴛ1 = true;
                 i++; if (i == len(format)) {
                     goto K;
                 }
@@ -58,7 +58,7 @@ L:
                 b = format[i];
                 goto L;
             }
-            else if (exprᴛ1 is (byte)'#') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'#') { matchᴛ1 = true;
                 i++; if (i == len(format)) {
                     goto K;
                 }
@@ -66,7 +66,7 @@ L:
                 b = format[i];
                 goto L;
             }
-            else if (exprᴛ1 is (byte)'0') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'0') { matchᴛ1 = true;
                 i++; if (i == len(format)) {
                     goto K;
                 }
@@ -74,7 +74,7 @@ L:
                 b = format[i];
                 goto L;
             }
-            else if (exprᴛ1 is (byte)'1' or (byte)'2' or (byte)'3' or (byte)'4' or (byte)'5' or (byte)'6' or (byte)'7' or (byte)'8' or (byte)'9') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'1' or (byte)'2' or (byte)'3' or (byte)'4' or (byte)'5' or (byte)'6' or (byte)'7' or (byte)'8' or (byte)'9') { matchᴛ1 = true;
                 width = (nint)((byte)(b & 0x0F));
                 for (i++; i < len(format); i++) {
                     b = format[i]; if (b <= '9' && '0' <= b) {
@@ -91,13 +91,13 @@ L:
                 }
                 goto L;
             }
-            else if (exprᴛ1 is (byte)'Y') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'Y') { matchᴛ1 = true;
                 buf = appendInt(buf, year, or(width, 4), padding);
             }
-            else if (exprᴛ1 is (byte)'y') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'y') { matchᴛ1 = true;
                 buf = appendInt(buf, abs(year % 100), max(width, 2), padding);
             }
-            else if (exprᴛ1 is (byte)'C') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'C') { matchᴛ1 = true;
                 nint c = year / 100;
                 var z = year < 0 && c == 0;
                 if (z) {
@@ -108,44 +108,44 @@ L:
                     buf[len(buf) - 1] = (byte)'0';
                 }
             }
-            else if (exprᴛ1 is (byte)'g') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'g') { matchᴛ1 = true;
                 var (yearΔ2, _) = t.ISOWeek();
                 buf = appendInt(buf, abs(yearΔ2 % 100), max(width, 2), padding);
             }
-            else if (exprᴛ1 is (byte)'G') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'G') { matchᴛ1 = true;
                 var (yearΔ3, _) = t.ISOWeek();
                 buf = appendInt(buf, yearΔ3, or(width, 4), padding);
             }
-            else if (exprᴛ1 is (byte)'m') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'m') { matchᴛ1 = true;
                 buf = appendInt(buf, (nint)month, max(width, 2), padding);
             }
-            else if (exprᴛ1 is (byte)'B') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'B') { matchᴛ1 = true;
                 buf = appendString(buf, longMonthNames[month - 1], width, padding, upper, swap);
             }
-            else if (exprᴛ1 is (byte)'b' or (byte)'h') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'b' or (byte)'h') { matchᴛ1 = true;
                 buf = appendString(buf, shortMonthNames[month - 1], width, padding, upper, swap);
             }
-            else if (exprᴛ1 is (byte)'A') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'A') { matchᴛ1 = true;
                 buf = appendString(buf, longWeekNames[t.Weekday()], width, padding, upper, swap);
             }
-            else if (exprᴛ1 is (byte)'a') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'a') { matchᴛ1 = true;
                 buf = appendString(buf, shortWeekNames[t.Weekday()], width, padding, upper, swap);
             }
-            else if (exprᴛ1 is (byte)'w') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'w') { matchᴛ1 = true;
                 buf = appendInt(buf, (nint)t.Weekday(), width, padding);
             }
-            else if (exprᴛ1 is (byte)'u') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'u') { matchᴛ1 = true;
                 buf = appendInt(buf, or((nint)t.Weekday(), 7), width, padding);
             }
-            else if (exprᴛ1 is (byte)'V') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'V') { matchᴛ1 = true;
                 var (_, week) = t.ISOWeek();
                 buf = appendInt(buf, week, max(width, 2), padding);
             }
-            else if (exprᴛ1 is (byte)'U') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'U') { matchᴛ1 = true;
                 nint week = (t.YearDay() + 6 - (nint)t.Weekday()) / 7;
                 buf = appendInt(buf, week, max(width, 2), padding);
             }
-            else if (exprᴛ1 is (byte)'W') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'W') { matchᴛ1 = true;
                 nint week = t.YearDay();
                 if ((nint)t.Weekday() > 0) {
                     week -= (nint)t.Weekday() - 7;
@@ -153,63 +153,63 @@ L:
                 week /= 7;
                 buf = appendInt(buf, week, max(width, 2), padding);
             }
-            else if (exprᴛ1 is (byte)'e') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'e') { matchᴛ1 = true;
                 if (padding < unchecked((byte)(~paddingMask))) {
                     padding = (byte)' ';
                 }
                 fallthrough = true;
             }
-            if (fallthrough || !matchᴛ1 && exprᴛ1 is (byte)'d') { matchᴛ1 = true;
+            if (fallthrough || !matchᴛ1 && bᴛ1 is (byte)'d') { matchᴛ1 = true;
                 buf = appendInt(buf, day, max(width, 2), padding);
             }
-            else if (exprᴛ1 is (byte)'j') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'j') { matchᴛ1 = true;
                 buf = appendInt(buf, t.YearDay(), max(width, 3), padding);
             }
-            else if (exprᴛ1 is (byte)'k') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'k') { matchᴛ1 = true;
                 if (padding < unchecked((byte)(~paddingMask))) {
                     padding = (byte)' ';
                 }
                 fallthrough = true;
             }
-            if (fallthrough || !matchᴛ1 && exprᴛ1 is (byte)'H') { matchᴛ1 = true;
+            if (fallthrough || !matchᴛ1 && bᴛ1 is (byte)'H') { matchᴛ1 = true;
                 buf = appendInt(buf, hour, max(width, 2), padding);
             }
-            else if (exprᴛ1 is (byte)'l') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'l') { matchᴛ1 = true;
                 if (padding < unchecked((byte)(~paddingMask))) {
                     padding = (byte)' ';
                 }
                 fallthrough = true;
             }
-            if (fallthrough || !matchᴛ1 && exprᴛ1 is (byte)'I') { matchᴛ1 = true;
+            if (fallthrough || !matchᴛ1 && bᴛ1 is (byte)'I') { matchᴛ1 = true;
                 buf = appendInt(buf, or(hour % 12, 12), max(width, 2), padding);
             }
-            else if (exprᴛ1 is (byte)'P') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'P') { matchᴛ1 = true;
                 swap = !(upper || swap);
                 fallthrough = true;
             }
-            if (fallthrough || !matchᴛ1 && exprᴛ1 is (byte)'p') { matchᴛ1 = true;
+            if (fallthrough || !matchᴛ1 && bᴛ1 is (byte)'p') { matchᴛ1 = true;
                 if (hour < 12) {
                     buf = appendString(buf, "AM", width, padding, upper, swap);
                 } else {
                     buf = appendString(buf, "PM", width, padding, upper, swap);
                 }
             }
-            else if (exprᴛ1 is (byte)'M') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'M') { matchᴛ1 = true;
                 buf = appendInt(buf, minute, max(width, 2), padding);
             }
-            else if (exprᴛ1 is (byte)'S') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'S') { matchᴛ1 = true;
                 buf = appendInt(buf, second, max(width, 2), padding);
             }
-            else if (exprᴛ1 is (byte)'s') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'s') { matchᴛ1 = true;
                 if (padding < unchecked((byte)(~paddingMask))) {
                     padding = (byte)' ';
                 }
                 buf = appendInt64(buf, t.Unix(), width, padding);
             }
-            else if (exprᴛ1 is (byte)'f') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'f') { matchᴛ1 = true;
                 buf = appendInt(buf, t.Nanosecond() / 1000, or(width, 6), padding);
             }
-            else if (exprᴛ1 is (byte)'Z' or (byte)'z') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'Z' or (byte)'z') { matchᴛ1 = true;
                 do {
                     var (name, offsetΔ1) = t.Zone();
                     if (b == 'Z' && name != ""u8) {
@@ -254,7 +254,7 @@ L:
                     }
                 } while (false);
             }
-            else if (exprᴛ1 is (byte)':') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)':') { matchᴛ1 = true;
                 if (pending != ""u8) {
                     buf = append(buf, (byte)':');
                 } else {
@@ -288,37 +288,37 @@ break_M:;
                     colons = 0;
                 }
             }
-            else if (exprᴛ1 is (byte)'t') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'t') { matchᴛ1 = true;
                 buf = appendString(buf, "\t", width, padding, false, false);
             }
-            else if (exprᴛ1 is (byte)'n') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'n') { matchᴛ1 = true;
                 buf = appendString(buf, "\n", width, padding, false, false);
             }
-            else if (exprᴛ1 is (byte)'%') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'%') { matchᴛ1 = true;
                 buf = appendString(buf, "%", width, padding, false, false);
             }
-            else if (exprᴛ1 is (byte)'c') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'c') { matchᴛ1 = true;
                 (pending, swap) = ("a b e H:M:S Y", false);
             }
-            else if (exprᴛ1 is (byte)'+') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'+') { matchᴛ1 = true;
                 (pending, swap) = ("a b e H:M:S Z Y", false);
             }
-            else if (exprᴛ1 is (byte)'v') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'v') { matchᴛ1 = true;
                 (pending, swap) = ("e-b-Y", false);
             }
-            else if (exprᴛ1 is (byte)'r') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'r') { matchᴛ1 = true;
                 (pending, swap) = ("I:M:S p", false);
             }
-            else if (exprᴛ1 is (byte)'F') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'F') { matchᴛ1 = true;
                 pending = "Y-m-d";
             }
-            else if (exprᴛ1 is (byte)'D' or (byte)'x') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'D' or (byte)'x') { matchᴛ1 = true;
                 pending = "m/d/y";
             }
-            else if (exprᴛ1 is (byte)'T' or (byte)'X') { matchᴛ1 = true;
+            else if (bᴛ1 is (byte)'T' or (byte)'X') { matchᴛ1 = true;
                 pending = "H:M:S";
             }
-            else if (exprᴛ1 is (byte)'R') {
+            else if (bᴛ1 is (byte)'R') {
                 pending = "H:M";
             }
             else if (!matchᴛ1) { /* default: */
@@ -376,19 +376,18 @@ internal static slice<byte> appendInt(slice<byte> buf, nint num, nint width, byt
             buf = append(buf, padding);
         }
     }
-    var exprᴛ2 = digits;
     var matchᴛ3 = false;
-    if (exprᴛ2 is 4) { matchᴛ3 = true;
+    if (digits is 4) { matchᴛ3 = true;
         buf = append(buf, (byte)((byte)(num / 1000) | '0'));
         num %= 1000;
         fallthrough = true;
     }
-    if (fallthrough || !matchᴛ3 && exprᴛ2 is 3) { matchᴛ3 = true;
+    if (fallthrough || !matchᴛ3 && digits is 3) { matchᴛ3 = true;
         buf = append(buf, (byte)((byte)(num / 100) | '0'));
         num %= 100;
         fallthrough = true;
     }
-    if (fallthrough || !matchᴛ3 && exprᴛ2 is 2) { matchᴛ3 = true;
+    if (fallthrough || !matchᴛ3 && digits is 2) { matchᴛ3 = true;
         buf = append(buf, (byte)((byte)(num / 10) | '0'));
         num %= 10;
         fallthrough = true;

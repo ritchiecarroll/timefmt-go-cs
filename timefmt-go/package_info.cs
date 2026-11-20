@@ -10,9 +10,6 @@
 // importing type aliases at a namespace level.
 
 // <ImportedTypeAliases>
-global using timeꓸLocation = go.time_package.ΔLocation;
-global using timeꓸMonth = go.time_package.ΔMonth;
-global using timeꓸWeekday = go.time_package.ΔWeekday;
 // </ImportedTypeAliases>
 
 using go;
@@ -57,8 +54,8 @@ using static go.github.com.itchyny.timefmt_go.timefmt_package;
 // or has none - golib, the BCL and hand-written conversions - and reports its own C# position.
 
 // <GoSourcePositionMaps>
-[assembly: GoPositionMap("github.com/itchyny/timefmt-go@v0.1.8/format.go", "format.cs", "AAcSgqiCgoKSgoKSgoKCgpSCgrSCgpSClIKCtIKUgoKkgpSCgqSClIKCpIKUgoKkgoKClKaClIKUpKSkgoKClIKCtoKkgqSkpKSkpKSkgqSCpIKClIKkgpSkpKSClKSkgpSkpIKkgpS2pKSClKS0goKClIKCgqaCgoKUlIKCgpSCgpSCgoKmgoKCgoLYgpSCgoKUtIKClIK05oKCtqSkpKSkpKSkpKSkgpS0goKmpoKCAAQegoKkpKSkpKSkpIKCgqakgoKkgoKkgoKk2IKClIKCgpSCgoKCgoKmpoKCgpSUgqakgoKUlLSCtqSmgoKCgqamgoKUpoKClMoADh4ADh4ACRQ=")]
-[assembly: GoPositionMap("github.com/itchyny/timefmt-go@v0.1.8/parse.go", "parse.cs", "AAgUgqqCpuLigoKm0pKygoKCgoKUgoKkgqSCgpSkgqSClIKUtoKCgpSCtoK2graCtoK2graClKSClKSClIKkgpSCpIKUgqSClKSCtoK2gpSkgraClKSClIK2goKUpIK2graCgoKUgoKCgqSSgpSClKSCgoKmgoKClIKCgpSUpIKClIKkgqSygoKUgoKClICCpIKCgoKUgoKCgoKmgoKCgpS4goKUgqSkgsaCgoKUlIKCgoCCgoK2graCgoLG5oKCtoKClKSkpKSkpKSkpIKClIKClLSCgpSCgpSmgoKUgpSClIKCgoKUlIKCgoKUgoKUgpSClJTmgsqCyoLKgsqCyoKmgoKUrIKCgoKClKaClKaCgoKCgpSmgpSmgoKCgoKClIKmtA==", "22-26:1", "", "", "", "31:21,32:13")]
+[assembly: GoPositionMap("github.com/itchyny/timefmt-go@v0.1.8/format.go", "format.cs", "AAcSgqiCgoKSgoKSgoKCgpSCgrSCgpSClIKCtIKUgoKkgpSCgqSClIKCpIKUgoKkgoKClKaClIKUpKSkgoKClIKCtoKkgqSkpKSkpKSkgqSCpIKClIKkgpSkpKSClKSkgpSkpIKkgpS2pKSClKS0goKClIKCgqaCgoKUlIKCgpSCgpSCgoKmgoKCgoLYgpSCgoKUtIKClIK05oKCtqSkpKSkpKSkpKSkgpS0goKmpoKCAAQegoKkpKSkpKSkpIKCgqaUgoKkgoKkgoKk2IKClIKCgpSCgoKCgoKmpoKCgpSUgqakgoKUlLSCtqSmgoKCgqamgoKUpoKClMoADh4ADh4ACRQ=")]
+[assembly: GoPositionMap("github.com/itchyny/timefmt-go@v0.1.8/parse.go", "parse.cs", "AAkUgqqCpuLigoKm0pKygoKCgoKUgoKkgqSCgpSkgqSClIKUtoKCgpSCtoK2graCtoK2graClKSClKSClIKkgpSCpIKUgqSClKSCtoK2gpSkgraClKSClIK2goKUpIK2graCgoKUgoKCgqSSgpSClKSCgoKmgoKClIKCgpSUpIKClIKkgqSygoKUgoKClICCpIKCgoKUgoKCgoKmgoKCgpS4goKUgqSkgsaCgoKUlIKCgoCCgoK2graCgoLG5oKCtoKClKSkpKSkpKSkpIKClIKClLSCgpSCgpSmgoKUgpSClIKCgoKUlIKCgoKUgoKUgpSClJTmguqCAAgKggAICoIACAqCAAgKgsaCgpSsgoKCgoKUpoKUpoKCgoKClKaClKaCgoKCgoKUgqa0", "22-26:1", "", "", "", "32:21,33:13")]
 // </GoSourcePositionMaps>
 
 namespace go.github.com.itchyny.timefmt_go;
@@ -93,3 +90,17 @@ public static partial class timefmt_package
     [GoInit] internal static void initᴛᴛimportꓸtime() => builtin.initPackage(typeof(time_package));
     // </ImportInitializers>
 }
+
+// A Go method is an extension method on its receiver type. The methods of one type are
+// in a class of their own beside the package class, so that a method and a package-level
+// type, constant or variable can share a name as they do in Go. Each class is declared
+// below with the type it holds the methods of; its blocks are in the converted sources,
+// in Go's declaration order.
+
+// <MethodHolders>
+[GoMethodHost(typeof(timefmt_package.expectedColonForZFormatError)), global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)] public static partial class timefmtᴛexpectedColonForZFormatError;
+[GoMethodHost(typeof(timefmt_package.expectedFormatError)), global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)] public static partial class timefmtᴛexpectedFormatError;
+[GoMethodHost(typeof(timefmt_package.expectedZAfterColonError)), global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)] public static partial class timefmtᴛexpectedZAfterColonError;
+[GoMethodHost(typeof(timefmt_package.parseFormatError)), global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)] public static partial class timefmtᴛparseFormatError;
+[GoMethodHost(typeof(timefmt_package.parseZFormatError)), global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)] public static partial class timefmtᴛparseZFormatError;
+// </MethodHolders>
